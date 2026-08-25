@@ -4,14 +4,36 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-         for (int i = 0; i < nums.size(); i++) {
-        for (int j=i+1;j<nums.size();j++){
-            if(nums[i]+nums[j]==target){
-                return {i,j};
-                    }
-                
-            }
+       int n=nums.size();
+       int low=0;
+       int high=n-1;
+       int num1;
+       int num2;
+       vector<int>nums2=nums;
+       sort(nums.begin(),nums.end());
+       while(low<high){
+        int sum=nums[low]+nums[high];
+        if(sum==target){
+            num1=nums[low];
+            num2=nums[high];
+            break;
         }
-        return{};
+        else if(sum>target){
+            high--;
+        }
+        else{
+            low++;
+        }
+       }
+        low=-1;
+       for(int i=0;i<n;i++){
+        if(nums2[i]==num1 && low==-1){
+            low=i;
+        }
+        else if(nums2[i]==num2){
+            high=i;
+        }
+       }
+       return {low,high};
     }
 };
