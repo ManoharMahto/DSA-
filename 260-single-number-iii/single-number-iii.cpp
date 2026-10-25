@@ -6,7 +6,7 @@ public:
             for(int i=0;i<n;i++){
                 xr^=nums[i];
             }
-            long long diff=-xr&xr;
+            long long diff=(xr^(xr-1))&xr;
             
             int zero=0;
             int one=0;
