@@ -8,6 +8,6 @@ public:
             if(nums[num-1] < 0 ) return num;
             nums[num-1]=-nums[num-1];
         }
-        return n;
+        return 0;
     }
 };
