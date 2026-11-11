@@ -5,7 +5,7 @@ public:
         int n = s.size();
         int i = 0;
         int sign = 1;
-        long long ans = 0;
+        int ans = 0;
 
         if(s[i] == ' '){
             while(s[i] == ' ' && i < n){
