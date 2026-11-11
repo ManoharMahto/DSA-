@@ -1,10 +1,5 @@
 class Solution {
 public:
-    bool isDigit(char c){
-        if(c >= 48 && c <=57) return true;
-        return false;
-    }
-
     int myAtoi(string s) {
 
         int n = s.size();
@@ -24,26 +19,15 @@ public:
         }
         else if(s[i] == '+') i++;
 
-        if(isDigit(s[i])){
-            while(s[i] == '0'){
-                i++;
-            }   
-        }
-        else return 0;
-
-        while(isDigit(s[i]) && i<n ){
+        while(s[i] >='0' && s[i] <= '9' && i<n ){
             int d = s[i] - '0';
+
+            if(ans > INT_MAX/10 || (ans == INT_MAX / 10 && d > 7)){
+                    return sign == 1 ? INT_MAX : INT_MIN ;
+            }
             ans = ans*10 + d ;
             i++;
-
-            
-            if(-ans <= INT_MIN && sign < 0) return INT_MIN;
-            
-            else if(ans >= INT_MAX && sign > 0) return INT_MAX;
-            
-
         }
-
         return ans*sign;
     }
 };
